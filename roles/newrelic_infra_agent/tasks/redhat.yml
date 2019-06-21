@@ -1,1 +1,13 @@
 ---
+
+- name: NEW RELIC INFRA REDHAT | Add Repository
+  yum_repository:
+    baseurl: "{{ newrelic_repository.url }}"
+    description: New Relic Infrastructure
+    enabled: "{{ newrelic_repository.enabled }}"
+    gpgcheck: "{{ newrelic_repository.gpgcheck }}"
+    gpgkey: "{{ newrelic_repository.gpgkey }}"
+    name: "{{ newrelic_repository.name }}"
+    state: "{{ newrelic_repository.state }}"
+    reposdir: "{{ newrelic_repository.reposdir }}"
+    repo_gpgcheck: "{{ newrelic_repository.repo_gpgcheck }}"

@@ -4,6 +4,17 @@
 # NEW RELIC AGENT
 ###
 
+# RedHat
+newrelic_repository:
+  enabled: yes
+  name: newrelic-infra
+  gpgcheck: yes
+  gpgkey: https://download.newrelic.com/infrastructure_agent/gpg/newrelic-infra.gpg
+  repo_gpgcheck: yes
+  reposdir: /etc/yum.repos.d
+  state: present
+  url: https://download.newrelic.com/infrastructure_agent/linux/yum/el/{{ ansible_distribution_major_version }}/$basearch
+
 # Ubuntu repository
 newrelic_apt_url: https://download.newrelic.com/infrastructure_agent/gpg/newrelic-infra.gpg
 newrelic_apt_repository: "deb [arch=amd64] https://download.newrelic.com/infrastructure_agent/linux/apt {{ ansible_distribution_release }} main"
