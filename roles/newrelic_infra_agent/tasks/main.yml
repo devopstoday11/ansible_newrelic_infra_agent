@@ -1,0 +1,25 @@
+---
+
+- name: NEW RELIC INFRA | Configure licence key
+  template:
+    src: etc/newrelic-infra.yml.j2
+    dest: /etc/newrelic-infra.yml
+    owner: root
+    group: root
+
+- name: NEW RELIC INFRA | Add apt repository key
+  apt_key:
+    url: "{{ newrelic_apt_url }}"
+    state: present
+
+- name: NEW RELIC INFRA | Add apt repository
+  apt_repository:
+    repo: "{{ newrelic_apt_repository }}"
+    state: present
+    filename: newrelic-infra
+    update_cache: yes
+
+- name: NEW RELIC INFRA | Install package
+  apt:
+    name: newrelic-infra
+    state: present

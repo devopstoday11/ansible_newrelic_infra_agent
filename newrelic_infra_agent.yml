@@ -1,0 +1,7 @@
+---
+
+- hosts: newrelic_infra_agent
+  remote_user: vagrant
+  become: yes
+  roles:
+    - newrelic_infra_agent
