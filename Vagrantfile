@@ -11,7 +11,7 @@ SUPPORTED_OS = {
 # Vagrant instance management
 $os                     = "ubuntu"
 $num_instances          = 1
-$instance_name_prefix   = "newrelic_infra_agent"
+$instance_name_prefix   = "newrelic-infra-agent"
 $vm_memory              = 2048
 $vm_cpus                = 1
 $subnet                 = "10.0.5.1" # For 10.0.4.8X

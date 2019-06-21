@@ -7,19 +7,15 @@
     owner: root
     group: root
 
-- name: NEW RELIC INFRA | Add apt repository key
-  apt_key:
-    url: "{{ newrelic_apt_url }}"
-    state: present
+- name: NEW RELIC INFRA | Manage Redhat environment
+  include_tasks: redhat.yml
+  when: ansible_os_family == "RedHat"
 
-- name: NEW RELIC INFRA | Add apt repository
-  apt_repository:
-    repo: "{{ newrelic_apt_repository }}"
-    state: present
-    filename: newrelic-infra
-    update_cache: yes
+- name: NEW RELIC INFRA | Manage Debian environment
+  include_tasks: debian.yml
+  when: ansible_os_family == "Debian"
 
 - name: NEW RELIC INFRA | Install package
-  apt:
+  package:
     name: newrelic-infra
     state: present

@@ -1,6 +1,6 @@
-# Ansible : Playbook Neuvector
+# Ansible : Playbook NewRelic infra agent
 
-The aim of this project is to deploy Neuvector on Linux Vagrant instance.
+The aim of this project is to deploy NewRelic infrastrucure agent on Linux Vagrant instance.
 
 ## Getting Started
 
@@ -13,11 +13,7 @@ What things you need to run this Ansible playbook :
 *   [Vagrant](https://www.vagrantup.com/docs/installation/) must be installed on your computer
 *   Update the Vagrant file based on your computer (CPU, memory), if needed
 *   Update the operating system to deploy in the Vagrant file (default: Ubuntu)
-*   Download the Ansible requirements:
-
-```bash
-$ ansible-galaxy install -r requirements.yml
-```
+*   CAUTION : it may be needed to rename the project directory with a short name to avoid Vagrant error
 
 ### Usage
 
@@ -27,7 +23,7 @@ Be aware that you need to be in the Vagrant directory to be able to run the comm
 
 #### Deployment
 
-To deploy Neuvector on Vagrant instances, just run this command :
+To deploy NewRelic infrastrucure agent on Vagrant instances, just run this command :
 
 ```bash
 $ vagrant up
@@ -40,12 +36,10 @@ $ vagrant status
 
 Current machine states:
 
-neuvector01                   running (virtualbox)
+newrelic-infra-agent01                   running (virtualbox)
 ```
 
-If everything run has expected, you should access :
-*   The NeuVector Docs interface : http://10.0.4.81/
-*   The NeuVector Console interface : https://10.0.4.81:8443/
+If everything run has expected, you should get metrics on your NewRelic dashboard.
 
 #### Destroy
 
@@ -61,10 +55,10 @@ This section list some simple command to use and manage the playbook and the Vag
 
 #### Update with Ansible
 
-To update the Neuvector configuration with Ansible, you just have to run the Ansible playbook neuvector.yml with this command :
+To update the NewRelic infrastrucure agent configuration with Ansible, you just have to run the Ansible playbook newrelic_infra_agent.yml with this command :
 
 ```bash
-$ ansible-playbook neuvector.yml
+$ ansible-playbook newrelic_infra_agent.yml
 ```
 
 #### Update with Vagrant
@@ -80,7 +74,7 @@ $ vagrant provision
 To be able to connect to a Vagrant instance, you should use the CLI which is configured to automatically use the default SSH key :
 
 ```bash
-$ vagrant ssh neuvector01
+$ vagrant ssh newrelic-infra-agent01
 ```
 
 ## Author

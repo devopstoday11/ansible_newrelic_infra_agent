@@ -1,0 +1,13 @@
+---
+
+- name: NEW RELIC INFRA DEBIAN | Add apt repository key
+  apt_key:
+    url: "{{ newrelic_apt_url }}"
+    state: present
+
+- name: NEW RELIC INFRA DEBIAN | Add apt repository
+  apt_repository:
+    repo: "{{ newrelic_apt_repository }}"
+    state: present
+    filename: newrelic-infra
+    update_cache: yes
